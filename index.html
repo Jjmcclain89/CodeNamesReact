@@ -1,0 +1,16 @@
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    var socket = io.connect('http://localhost:3000');
+
+    socket.on('news', function (data) {
+        console.log(data);
+    });
+
+    function createGame(){
+        console.log("createGame");
+        socket.emit('createGame', { userID: 0 });
+    }
+
+</script>
+
+<button onclick=createGame()> Create Game </button>
