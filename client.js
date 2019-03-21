@@ -1,11 +1,11 @@
-var socket = io.connect('http://localhost:3000');
+const io = require('socket.io');
+const socket = io.connect("http://localhost:3000");
 
-socket.on('news', function (data) {
+socket.on("hi", function(data) {
     console.log(data);
 });
 
-const createGame = () => {
-    console.log('newGame');
-    socket.emit('newGame', { userID: 0 });
+function createGame() {
+    console.log("createGame");
+    socket.emit("createGame", { userID: 0 });
 }
-console.log("hey");
