@@ -1,0 +1,35 @@
+<script src="/socket.io/socket.io.js"></script>
+<!-- <script src= "./client.js"></script> -->
+<script>
+	const socket = io.connect("http://localhost:3000");
+	let serverState = {
+		users: [],
+		games: []
+	};
+
+	socket.on("hi", function(data) {
+		console.log(data);
+	});
+
+	socket.on("serverState", function(data) {
+		serverState = data;
+		console.log("recieved lobby state!", serverState);
+	});
+
+	function createGame() {
+		console.log("createGame");
+		socket.emit("createGame", { userID: 0 });
+	}
+
+	function logIn() {
+		const userName = document.getElementById(`userName`).value;
+		console.log(`Logged in as ${userName}`);
+		socket.emit("login", { userName });
+	}
+
+	
+</script>
+
+<input type="text" id="userName"></input>
+<button onclick="logIn()">Log In</button>
+<button onclick="createGame()">Create Game</button>
