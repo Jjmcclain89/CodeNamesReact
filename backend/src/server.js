@@ -1,17 +1,14 @@
 import { setupGame } from "./lib/game";
 import wordList from "./resources/wordList";
-import db from "./lib/db";
+import { connectDB } from "./lib/db";
 
 const app = require("express")();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const port = 2323;
 
-db.connect(err => {
-    console.log(err ? err : 'connected');
-});
-
 const gameCount = 0;
+const db = await connectDB();
 
 server.listen(port);
 
