@@ -93,10 +93,10 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
-/***/ "./components/Signup.js":
-/*!******************************!*\
-  !*** ./components/Signup.js ***!
-  \******************************/
+/***/ "./components/GameList.js":
+/*!********************************!*\
+  !*** ./components/GameList.js ***!
+  \********************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -106,91 +106,188 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
-var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\components\\Signup.js";
+var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\components\\GameList.js";
 
 
-function Signup() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+function GameList(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([{
+    id: 0
+  }, {
+    id: 1
+  }]),
       _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
-      userName = _useState2[0],
-      setUserName = _useState2[1];
+      gameList = _useState2[0],
+      setGameList = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(""),
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, gameList.map(function (game) {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+      key: game.id,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      },
+      __self: this
+    }, game.id);
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (GameList);
+
+/***/ }),
+
+/***/ "./components/Lobby.js":
+/*!*****************************!*\
+  !*** ./components/Lobby.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _lib_socket__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../lib/socket */ "./lib/socket.js");
+/* harmony import */ var _GameList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./GameList */ "./components/GameList.js");
+/* harmony import */ var _UserList__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserList */ "./components/UserList.js");
+
+var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\components\\Lobby.js";
+
+
+
+
+
+function Lobby(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])(Object(_lib_socket__WEBPACK_IMPORTED_MODULE_2__["openSocketToServer"])()),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+      socket = _useState2[0],
+      setSocket = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])({
+    userName: "lol"
+  }),
       _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
-      password = _useState4[0],
-      setPassword = _useState4[1];
+      user = _useState4[0],
+      setUser = _useState4[1];
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    var newUser = {
-      userName: userName,
-      password: password
-    };
+  function handleLogIn() {
+    Object(_lib_socket__WEBPACK_IMPORTED_MODULE_2__["logIn"])(socket, user);
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_1___default.a.Fragment, {
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    className: "lobby",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 15
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 16
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
-    className: "signupForm",
-    onSubmit: handleSubmit,
+  }, "Lobby!"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_GameList__WEBPACK_IMPORTED_MODULE_3__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 17
     },
     __self: this
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-    htmlFor: "userNameInput",
+  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_UserList__WEBPACK_IMPORTED_MODULE_4__["default"], {
     __source: {
       fileName: _jsxFileName,
       lineNumber: 18
     },
     __self: this
-  }, "UserName"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-    id: "userNameInput",
-    type: "text",
-    value: userName,
-    onChange: function onChange(e) {
-      return setUserName(e.target.value);
-    },
+  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+    onClick: handleLogIn,
     __source: {
       fileName: _jsxFileName,
       lineNumber: 19
     },
     __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
-    htmlFor: "userNameInput",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 25
-    },
-    __self: this
-  }, "UserName"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
-    id: "passwordInput",
-    type: "text",
-    value: password,
-    onChange: function onChange(e) {
-      return setPassword(e.target.value);
-    },
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 26
-    },
-    __self: this
-  }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-    type: "submit",
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 32
-    },
-    __self: this
-  }, "submit")));
+  }, "Log In"));
 }
 
-/* harmony default export */ __webpack_exports__["default"] = (Signup);
+/* harmony default export */ __webpack_exports__["default"] = (Lobby);
+
+/***/ }),
+
+/***/ "./components/UserList.js":
+/*!********************************!*\
+  !*** ./components/UserList.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+
+var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\components\\UserList.js";
+
+
+function UserList(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_1__["useState"])([]),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+      userList = _useState2[0],
+      setUserList = _useState2[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("ul", {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 7
+    },
+    __self: this
+  }, userList.map(function (user) {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("li", {
+      key: user.userName,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 9
+      },
+      __self: this
+    }, user.userName);
+  }));
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (UserList);
+
+/***/ }),
+
+/***/ "./lib/socket.js":
+/*!***********************!*\
+  !*** ./lib/socket.js ***!
+  \***********************/
+/*! exports provided: openSocketToServer, logIn */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openSocketToServer", function() { return openSocketToServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logIn", function() { return logIn; });
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! socket.io-client */ "socket.io-client");
+/* harmony import */ var socket_io_client__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(socket_io_client__WEBPACK_IMPORTED_MODULE_0__);
+
+var BACKEND_URL = "localhost:2323";
+var openSocketToServer = function openSocketToServer() {
+  var socket = socket_io_client__WEBPACK_IMPORTED_MODULE_0___default()(BACKEND_URL);
+  socket.on("serverState", function (data) {
+    console.log(data);
+  });
+  return socket;
+};
+var logIn = function logIn(socket, user) {
+  socket.emit("logIn", user);
+};
 
 /***/ }),
 
@@ -2514,10 +2611,10 @@ for (var i = 0; i < DOMIterables.length; i++) {
 
 /***/ }),
 
-/***/ "./pages/signup.js":
-/*!*************************!*\
-  !*** ./pages/signup.js ***!
-  \*************************/
+/***/ "./pages/index.js":
+/*!************************!*\
+  !*** ./pages/index.js ***!
+  \************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2530,31 +2627,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/inherits */ "./node_modules/@babel/runtime-corejs2/helpers/esm/inherits.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var _components_Signup__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Signup */ "./components/Signup.js");
+/* harmony import */ var _components_Lobby__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Lobby */ "./components/Lobby.js");
 
 
 
 
 
-var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\pages\\signup.js";
+var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\pages\\index.js";
 
 
 
-var App =
+var Home =
 /*#__PURE__*/
 function (_Component) {
-  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(App, _Component);
+  Object(_babel_runtime_corejs2_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(Home, _Component);
 
-  function App() {
-    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, App);
+  function Home() {
+    Object(_babel_runtime_corejs2_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Home);
 
-    return Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(App).apply(this, arguments));
+    return Object(_babel_runtime_corejs2_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__["default"])(this, Object(_babel_runtime_corejs2_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_3__["default"])(Home).apply(this, arguments));
   }
 
-  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(App, [{
+  Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Home, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_components_Signup__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_components_Lobby__WEBPACK_IMPORTED_MODULE_6__["default"], {
         __source: {
           fileName: _jsxFileName,
           lineNumber: 7
@@ -2564,21 +2661,21 @@ function (_Component) {
     }
   }]);
 
-  return App;
+  return Home;
 }(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
 
-/* harmony default export */ __webpack_exports__["default"] = (App);
+/* harmony default export */ __webpack_exports__["default"] = (Home);
 
 /***/ }),
 
 /***/ 3:
-/*!*******************************!*\
-  !*** multi ./pages/signup.js ***!
-  \*******************************/
+/*!******************************!*\
+  !*** multi ./pages/index.js ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Josh Mcclain\projects\CodeNamesReact\frontend\pages\signup.js */"./pages/signup.js");
+module.exports = __webpack_require__(/*! C:\Users\Josh Mcclain\projects\CodeNamesReact\frontend\pages\index.js */"./pages/index.js");
 
 
 /***/ }),
@@ -2592,7 +2689,18 @@ module.exports = __webpack_require__(/*! C:\Users\Josh Mcclain\projects\CodeName
 
 module.exports = require("react");
 
+/***/ }),
+
+/***/ "socket.io-client":
+/*!***********************************!*\
+  !*** external "socket.io-client" ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("socket.io-client");
+
 /***/ })
 
 /******/ });
-//# sourceMappingURL=signup.js.map
+//# sourceMappingURL=index.js.map

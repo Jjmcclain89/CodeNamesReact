@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import Signup from '../components/Signup';
+import React, { Component } from "react";
+import Signup from "../components/Signup";
 
-class App extends Component {
-  render() {
+const SignupPage = props => {
     return (
-     <Signup />
+        <div>
+            <Signup />
+            <p>signup</p>
+        </div>
     );
-  }
-}
+};
 
-export default App;
- 
+export default SignupPage;

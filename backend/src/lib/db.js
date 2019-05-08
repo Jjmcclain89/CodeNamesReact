@@ -1,6 +1,5 @@
 const MongoClient = require("mongodb").MongoClient;
 
-
 export async function connectDB(){
     const uri =
         "mongodb+srv://jjmcclain:pw@cluster0-pkid3.mongodb.net/test?retryWrites=true";
@@ -13,7 +12,7 @@ export async function connectDB(){
 
 export function getNextSequenceValue(sequenceName){
     var sequenceDocument = client.counters.findAndModify({
-        query:{_id: sequenceName },
+        query: {_id: sequenceName },
         update: {$inc:{sequence_value:1}},
         new:true
     });
