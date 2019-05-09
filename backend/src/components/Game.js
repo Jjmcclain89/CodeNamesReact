@@ -5,7 +5,7 @@ import Word from "./Word";
 export default class Game {
     constructor(opts) {
         this.words = new Map();
-        this.players = new Map();
+        this.users = new Map();
         opts.wordList
             ? (this.wordList = opts.wordList)
             : (this.wordList = defaultWordList);
@@ -15,7 +15,7 @@ export default class Game {
         this.whichTeamsTurn = 1;
     }
 
-    setup() {
+    start() {
         let words = getRandom(this.wordList, 25);
         words = words.map(word => {
             return new Word({ word, team: 0, isGuessed: false });
@@ -36,27 +36,44 @@ export default class Game {
         words[redWordCount + blueWordCount].team = -1;
 
         words.map(w => this.words.set(w.word, w));
-        let lol = new Word({ word: "LOL", team: 99, isGuessed: false });
-        this.words.set(lol.word, lol);
-        console.log(lol);
     }
 
-    validateTurn(player) {
-        return player.team == whichTeamsTurn;
+    validateTurn(user, shouldBeClueGiver) {
+        return (
+            user.team == this.whichTeamsTurn &&
+            user.isClueGiver == shouldBeClueGiver
+        );
     }
 
-    guessWord(word) {
-        let w = this.words.get(word);
-        w.isGuessed = true;
-        return w.team;
+    guessWord(user, word) {
+        if (this.validateTurn(user, false)) {
+            let w = this.words.get(word);
+            w.isGuessed = true;
+            return w.team;
+        } else {
+            return `Error, it is not this user's turn`;
+        }
     }
 
-    giveClue(player, clue) {
-        validateTurn(player) && this.clues.push(clue);
+    getWordValues() {
+        return Array.from(this.words.values()).map(w => {
+            w.word, w.isGuessed;
+        });
     }
 
-    addPlayer(player) {
-        this.players.set(player.userName, player)
+    getWords() {
+        return Array.from(this.words.values());
     }
 
+    giveClue(user, clue) {
+        this.validateTurn(user, true) && this.clues.push(clue);
+    }
+
+    addUser(user) {
+        this.users.set(user.id, user);
+    }
+
+    getUsers() {
+        return Array.from(this.users.values());
+    }
 }

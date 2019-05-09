@@ -1,28 +1,32 @@
 export default class ClientManager {
     constructor() {
-        this.clients = new Map();
+        this.users = new Map();
     }
 
     addClient(client) {
-        this.clients.set(client.id, client);
+        this.users.set(client.id, { client });
     }
 
-    clientSignIn(client, user) {
-        this.clients.set(client.id, { ...client, user });
+    clientSignIn(client, userInfo) {
+        this.users.set(client.id, { client, ...userInfo });
     }
 
     removeClient(client) {
-        this.clients.delete(client.id);
+        this.users.delete(client.id);
+    }
+
+    getUserByID(id){
+        return this.users.get(id)
     }
 
     getClients() {
-        return this.clients.keys();
+        return new Array(...this.users.keys());
     }
 
-    getUsers() {
-        return this.clients
-            .values()
-            .filter(client => client.user)
-            .map(client => client.user.userName);
-    }
+    // getUsers() {
+    //     return this.clients
+    //         .values()
+    //         .filter(client => client.user)
+    //         .map(client => client.user.userName);
+    // }
 }

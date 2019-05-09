@@ -3,7 +3,7 @@ import ClientManager from "./managers/ClientManager";
 import GameManager from "./managers/GameManager";
 import createHandlers from "./lib/handlers";
 import Game from "./components/Game";
-import { guessWordTest } from "../tests/tests";
+import { testGuessWord } from "../tests/tests";
 
 const app = require("express")();
 const server = require("http").Server(app);
@@ -13,10 +13,14 @@ const clientManager = new ClientManager();
 const gameManager = new GameManager();
 
 io.on("connection", client => {
-    const { handleSignIn, handleDisconnect } = createHandlers();
+    const { handleSignIn, handleDisconnect } = createHandlers(
+        client,
+        clientManager,
+        gameManager
+    );
 
     clientManager.addClient(client);
-    console.log(clientManager.getClients());
+    console.log(`Client "${client.id}" connected.`);
 
     client.on("signIn", handleSignIn);
 
@@ -25,4 +29,4 @@ io.on("connection", client => {
 
 server.listen(port, () => console.log(`listening on localhost:${port}`));
 
-guessWordTest('LOL');
+// testGuessWord();

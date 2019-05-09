@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { openSocketToServer, logIn } from "../lib/socket";
 import GameList from "./GameList";
 import UserList from "./UserList";
@@ -10,6 +10,10 @@ function Lobby(props) {
     function handleLogIn() {
         logIn(socket, user);
     }
+
+    useEffect(() => {
+        
+    });
 
     return (
         <div className="lobby">
