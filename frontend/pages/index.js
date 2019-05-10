@@ -1,10 +1,12 @@
-import React, { Component } from "react";
-import Lobby from "../components/Lobby";
+import React, { Component } from 'react';
+import Lobby from '../components/Lobby';
 
 class Home extends Component {
-    render() {
-        return <div>test</div>;
-    }
+  render() {
+    return (
+     <Lobby />
+    );
+  }
 }
 
 export default Home;

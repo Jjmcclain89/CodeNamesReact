@@ -39,6 +39,18 @@ export default class Game {
         words[redWordCount + blueWordCount].team = -1;
 
         words.map(w => this.words.set(w.word, w));
+        this.getUsers().map(user => {
+            user.isClueGiver
+                ? (words = this.getWords())
+                : (words = this.getWordValues());
+            user.client.emit(
+                `event`,
+                new Event(`startGame`, {
+                    gameState: { words, users: this.getUsers() }
+                })
+            );
+        });
+        game.broadcastEvent(`gameStarted`);
         console.log(`Starting game #${this.id}`);
         return this.getGameState();
     }
@@ -111,6 +123,9 @@ export default class Game {
     broadcastEvent(eventName) {
         this.io
             .to(`${this.id}`)
-            .emit("event", new Event(eventName, this.getGameState()));
+            .emit(
+                "event",
+                new Event(eventName, { gameState: this.getGameState() })
+            );
     }
 }

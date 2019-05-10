@@ -9,10 +9,11 @@ export default class Lobby extends React.Component {
 
         this.state = {
             userName: "",
-            // client: socket(),
-            gameID: 0
+            client: socket(),
+            gameID: 0,
+            gameState: {users: []}
         };
-        // this.state.client.subscribeSocket();
+        this.state.client.subscribeSocket(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleSignIn = this.handleSignIn.bind(this);
         this.handleCreateGame = this.handleCreateGame.bind(this);
@@ -72,6 +73,11 @@ export default class Lobby extends React.Component {
                 </div>
                 <div>
                     <button onClick={this.handleStartGame}>Start Game</button>
+                </div>
+                <div>
+                    <ul>
+                        {this.state.gameState.users.map(u => <li key={u}>{u}</li>)}
+                    </ul>
                 </div>
             </div>
         );
