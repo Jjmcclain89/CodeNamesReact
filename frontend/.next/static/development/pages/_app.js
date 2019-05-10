@@ -44,13 +44,7 @@ function (_Component) {
           lineNumber: 6
         },
         __self: this
-      }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", {
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 7
-        },
-        __self: this
-      }, "page"), this.props.children);
+      }, this.props.children);
     }
   }]);
 

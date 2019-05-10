@@ -21,10 +21,18 @@ io.on("connection", client => {
         handleStartGame,
         handleGiveClue,
         handleGuess
-    } = createHandlers(client, clientManager, gameManager);
+    } = createHandlers(io, client, clientManager, gameManager);
 
     clientManager.addClient(client);
-    console.log(`Client "${client.id}" connected.`);
+
+    // client.join("test", () => {
+    //     let room = io.to(`test`);
+    //     console.log({
+    //         rooms: client.rooms,
+    //         room: room.name,
+    //         clients: room.connected
+    //     });
+    // });
 
     client.on("signIn", handleSignIn);
 
@@ -42,5 +50,10 @@ io.on("connection", client => {
 });
 
 server.listen(port, () => console.log(`listening on localhost:${port}`));
-
+// setInterval(() => {
+//     let room = io.of('/test');
+//     console.log(room.connected);
+//     io.of("/test").emit("event", "test");
+// }, 2000);
+// setInterval(()=>console.log(clientManager.getUsers(true)), 1000);
 // testGuessWord();

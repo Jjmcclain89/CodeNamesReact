@@ -1,18 +1,21 @@
 import { getRandom } from "../lib/utils";
 import defaultWordList from "../resources/wordList";
+import Event from "../components/Event";
 import Word from "./Word";
 
 export default class Game {
-    constructor(opts) {
-        this.words = new Map();
-        this.users = new Map();
-        opts.wordList
-            ? (this.wordList = opts.wordList)
-            : (this.wordList = defaultWordList);
+    constructor(io, { id, wordList }) {
+        this.id = id;
         this.status = "setup";
+        this.users = new Map();
+        this.words = new Map();
         this.clues = [];
         this.guesses = [];
         this.whichTeamsTurn = 1;
+        this.io = io;
+        wordList
+            ? (this.wordList = opts.wordList)
+            : (this.wordList = defaultWordList);
     }
 
     start() {
@@ -36,22 +39,30 @@ export default class Game {
         words[redWordCount + blueWordCount].team = -1;
 
         words.map(w => this.words.set(w.word, w));
+        console.log(`Starting game #${this.id}`);
+        return this.getGameState();
     }
 
     validateTurn(user, shouldBeClueGiver) {
-        return (
+        if (
             user.team == this.whichTeamsTurn &&
             user.isClueGiver == shouldBeClueGiver
-        );
+        ) {
+            return true;
+        } else {
+            console.log("Validation Error");
+        }
     }
 
-    guessWord(user, word) {
+    guessWord({ userID, word }) {
+        let user = this.users.get(userID);
         if (this.validateTurn(user, false)) {
             let w = this.words.get(word);
             w.isGuessed = true;
+            this.guesses.push({ user, word });
             return w.team;
         } else {
-            return `Error, it is not this user's turn`;
+            return false;
         }
     }
 
@@ -66,14 +77,40 @@ export default class Game {
     }
 
     giveClue(user, clue) {
-        this.validateTurn(user, true) && this.clues.push(clue);
+        return this.validateTurn(user, true) && this.clues.push(clue);
     }
 
     addUser(user) {
         this.users.set(user.id, user);
+        console.log(user.client);
+        user.client.join(`${this.id}`, err => {
+            err && console.log(err);
+            console.log(Array.from(this.io.to(this.id).connected).length);
+        });
+        this.broadcastEvent(`userJoined`);
+        console.log(`${user.userName} has joined game #${this.id}`);
     }
 
-    getUsers() {
-        return Array.from(this.users.values());
+    getUsers(getOnlyNames = false) {
+        return Array.from(this.users.values()).map(u =>
+            getOnlyNames ? u.userName : u
+        );
+    }
+
+    getGameState() {
+        return {
+            words: this.getWordValues(),
+            users: this.getUsers(true),
+            status: this.status,
+            clues: this.clues,
+            guesses: this.guesses,
+            whichTeamsTurn: this.whichTeamsTurn
+        };
+    }
+
+    broadcastEvent(eventName) {
+        this.io
+            .to(`${this.id}`)
+            .emit("event", new Event(eventName, this.getGameState()));
     }
 }

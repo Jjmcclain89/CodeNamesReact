@@ -1,6 +1,6 @@
 export default class Event {
-    constructor(event, gameState) {
+    constructor(event, data) {
         this.event = event;
-        this.gameState = gameState;
+        this.data = data;
     }
 }

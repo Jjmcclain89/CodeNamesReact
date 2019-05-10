@@ -6,12 +6,13 @@ export default class GameManager {
         this.nextGameID = 0;
     }
 
-    createGame(user, opts) {
-        const newGame = new Game(opts);
-        newGame.id = this.nextGameID;
+    createGame(io, user, opts) {
+        const newGame = new Game(io, {...opts, id: this.nextGameID});
         this.nextGameID++;
         newGame.addUser(user);
         this.games.set(newGame.id, newGame);
+        console.log(`${user.userName} created game# ${newGame.id}`);
+        return newGame.id;
     }
 
     getGameByID(id) {

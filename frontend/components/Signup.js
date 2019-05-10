@@ -10,8 +10,8 @@ function Signup() {
             userName,
             password
         }
-
     }
+    
     return (
         <React.Fragment>
             <form className="signupForm" onSubmit={handleSubmit}>
