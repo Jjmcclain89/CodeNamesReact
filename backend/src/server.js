@@ -23,16 +23,7 @@ io.on("connection", client => {
         handleGuess
     } = createHandlers(io, client, clientManager, gameManager);
 
-    clientManager.addClient(client);
-
-    // client.join("test", () => {
-    //     let room = io.to(`test`);
-    //     console.log({
-    //         rooms: client.rooms,
-    //         room: room.name,
-    //         clients: room.connected
-    //     });
-    // });
+    clientManager.addClient(client);6
 
     client.on("signIn", handleSignIn);
 
