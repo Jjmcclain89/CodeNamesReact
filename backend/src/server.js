@@ -23,7 +23,7 @@ io.on("connection", client => {
         handleGuess
     } = createHandlers(io, client, clientManager, gameManager);
 
-    clientManager.addClient(client);6
+    clientManager.addClient(client);
 
     client.on("signIn", handleSignIn);
 
