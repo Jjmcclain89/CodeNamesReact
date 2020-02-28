@@ -13,9 +13,7 @@ export default class Game {
         this.guesses = [];
         this.whichTeamsTurn = 1;
         this.io = io;
-        wordList
-            ? (this.wordList = opts.wordList)
-            : (this.wordList = defaultWordList);
+        this.wordList = wordList ? wordList : defaultWordList;
     }
 
     start() {

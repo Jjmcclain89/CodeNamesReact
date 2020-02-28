@@ -93,6 +93,166 @@ module.exports =
 /************************************************************************/
 /******/ ({
 
+/***/ "./components/GameBoard.js":
+/*!*********************************!*\
+  !*** ./components/GameBoard.js ***!
+  \*********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/slicedToArray */ "./node_modules/@babel/runtime-corejs2/helpers/esm/slicedToArray.js");
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Word__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Word */ "./components/Word.js");
+/* harmony import */ var _ThemeContext__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ThemeContext */ "./components/ThemeContext.js");
+
+
+var _jsxFileName = "C:\\Users\\Jmccl\\Coding Projects\\CodeNamesReact\\frontend\\components\\GameBoard.js";
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_1__["default"])(["\n    display: flex;\n    flex-wrap: wrap;\n    justify-content: center;\n    padding: 16px;\n    min-height: 500px;\n    max-width: 835px;\n    border-radius: ", ";\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+
+
+var StyledGameBoard = styled_components__WEBPACK_IMPORTED_MODULE_3___default.a.div(_templateObject(), function (props) {
+  return props.theme.borderRadius;
+});
+
+var GameBoard = function GameBoard(props) {
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])([{
+    word: '1',
+    team: 0
+  }, {
+    word: '2',
+    team: 1
+  }, {
+    word: '3',
+    team: 0
+  }, {
+    word: '4',
+    team: 0
+  }, {
+    word: '5',
+    team: 0
+  }, {
+    word: '6',
+    team: 0
+  }, {
+    word: '7',
+    team: 0
+  }, {
+    word: '8',
+    team: 2
+  }, {
+    word: '9',
+    team: 0
+  }, {
+    word: '10',
+    team: 1
+  }, {
+    word: '11',
+    team: 0
+  }, {
+    word: '12',
+    team: 0
+  }, {
+    word: '13',
+    team: 2
+  }, {
+    word: '14',
+    team: 0
+  }, {
+    word: '15',
+    team: 1
+  }, {
+    word: '16',
+    team: 0
+  }, {
+    word: '17',
+    team: 0
+  }, {
+    word: '18',
+    team: 2
+  }, {
+    word: '19',
+    team: 0
+  }, {
+    word: '20',
+    team: 1
+  }, {
+    word: '21',
+    team: 0
+  }, {
+    word: '22',
+    team: 0
+  }, {
+    word: '23',
+    team: 2
+  }, {
+    word: '24',
+    team: 0
+  }, {
+    word: '25',
+    team: 1
+  }]),
+      _useState2 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState, 2),
+      words = _useState2[0],
+      setWords = _useState2[1];
+
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_2__["useState"])(0),
+      _useState4 = Object(_babel_runtime_corejs2_helpers_esm_slicedToArray__WEBPACK_IMPORTED_MODULE_0__["default"])(_useState3, 2),
+      activeTeam = _useState4[0],
+      setActiveTeam = _useState4[1];
+
+  return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_ThemeContext__WEBPACK_IMPORTED_MODULE_5__["Consumer"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 47
+    },
+    __self: this
+  }, function (theme) {
+    return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(StyledGameBoard, {
+      activeTeam: activeTeam,
+      theme: theme,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 49
+      },
+      __self: this
+    }, words.map(function (word) {
+      return react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(_Word__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        word: word.word,
+        key: word.word,
+        team: word.team,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 51
+        },
+        __self: this
+      });
+    }));
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (GameBoard);
+
+/***/ }),
+
 /***/ "./components/GameList.js":
 /*!********************************!*\
   !*** ./components/GameList.js ***!
@@ -106,7 +266,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
-var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\components\\GameList.js";
+var _jsxFileName = "C:\\Users\\Jmccl\\Coding Projects\\CodeNamesReact\\frontend\\components\\GameList.js";
 
 
 function GameList(props) {
@@ -170,7 +330,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\components\\Lobby.js";
+var _jsxFileName = "C:\\Users\\Jmccl\\Coding Projects\\CodeNamesReact\\frontend\\components\\Lobby.js";
 
 
 
@@ -366,6 +526,30 @@ function (_React$Component) {
 
 /***/ }),
 
+/***/ "./components/ThemeContext.js":
+/*!************************************!*\
+  !*** ./components/ThemeContext.js ***!
+  \************************************/
+/*! exports provided: Provider, Consumer, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Provider", function() { return Provider; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Consumer", function() { return Consumer; });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _styles_theme__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./styles/theme */ "./components/styles/theme.js");
+
+
+var ThemeContext = react__WEBPACK_IMPORTED_MODULE_0___default.a.createContext(_styles_theme__WEBPACK_IMPORTED_MODULE_1__["theme"]);
+var Provider = ThemeContext.Provider,
+    Consumer = ThemeContext.Consumer;
+
+/* harmony default export */ __webpack_exports__["default"] = (ThemeContext);
+
+/***/ }),
+
 /***/ "./components/UserList.js":
 /*!********************************!*\
   !*** ./components/UserList.js ***!
@@ -379,7 +563,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 
-var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\components\\UserList.js";
+var _jsxFileName = "C:\\Users\\Jmccl\\Coding Projects\\CodeNamesReact\\frontend\\components\\UserList.js";
 
 
 function UserList(props) {
@@ -407,6 +591,133 @@ function UserList(props) {
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (UserList);
+
+/***/ }),
+
+/***/ "./components/Word.js":
+/*!****************************!*\
+  !*** ./components/Word.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _ThemeContext__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ThemeContext */ "./components/ThemeContext.js");
+
+var _jsxFileName = "C:\\Users\\Jmccl\\Coding Projects\\CodeNamesReact\\frontend\\components\\Word.js";
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n    width: 150px;\n    height: 100px;\n    margin: 5px;\n    padding: 5px;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    background: ", ";\n    border: 2px solid #8E610B;\n    border-radius: ", ";\n    span {\n        font-size: 1.5rem;\n        text-align: center;\n        border-bottom: 1px solid #4A4A4A;\n        color: ", ";\n        text-shadow: 1px 1px #4A4A4A;\n    }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+
+var fontColors = {
+  light: "#E0E0E0",
+  dark: "#1F1010"
+};
+var StyledWord = styled_components__WEBPACK_IMPORTED_MODULE_2___default.a.div(_templateObject(), function (props) {
+  return props.theme.colors.teams[props.team];
+}, function (props) {
+  return props.theme.borderRadius;
+}, function (props) {
+  return props.team == 4 ? fontColors.light : fontColors.dark;
+});
+
+var Word = function Word(_ref) {
+  var word = _ref.word,
+      team = _ref.team;
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_ThemeContext__WEBPACK_IMPORTED_MODULE_3__["Consumer"], {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 30
+    },
+    __self: this
+  }, function (theme) {
+    return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(StyledWord, {
+      theme: theme,
+      team: team,
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 33
+      },
+      __self: this
+    }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", {
+      __source: {
+        fileName: _jsxFileName,
+        lineNumber: 34
+      },
+      __self: this
+    }, word));
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Word);
+
+/***/ }),
+
+/***/ "./components/styles/theme.js":
+/*!************************************!*\
+  !*** ./components/styles/theme.js ***!
+  \************************************/
+/*! exports provided: theme, GlobalStyle */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "theme", function() { return theme; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GlobalStyle", function() { return GlobalStyle; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral */ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "styled-components");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(styled_components__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _templateObject() {
+  var data = Object(_babel_runtime_corejs2_helpers_esm_taggedTemplateLiteral__WEBPACK_IMPORTED_MODULE_0__["default"])(["\n  @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');\n  html {\n    box-sizing: border-box;\n    font-size: 16px;\n    \n  }\n  *, *:before, *:after {\n    box-sizing: inherit;\n  }\n  body {\n    padding: 0;\n    margin: 0;\n    line-height: 2;\n    font-family: 'Roboto';\n    background: ", ";\n    height: 100vh;\n  }\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+
+var colors = {
+  tan: "linear-gradient(#FBBA67, #C16C00)",
+  blue: "linear-gradient(#334462, #4074D0)",
+  red: "linear-gradient(#ED213A, #93291E)",
+  black: "linear-gradient(#000000, #434343)",
+  silver: "linear-gradient(#FFFFFF, #434343)"
+};
+var theme = {
+  colors: {
+    teams: {
+      0: colors.tan,
+      1: colors.blue,
+      2: colors.red,
+      3: colors.silver,
+      4: colors.black
+    },
+    background: "linear-gradient(#B58D35, #FFCD8E)"
+  },
+  maxWidth: '1000px',
+  borderRadius: '8px'
+};
+var GlobalStyle = Object(styled_components__WEBPACK_IMPORTED_MODULE_1__["createGlobalStyle"])(_templateObject(), theme.colors.background, theme.colors.black);
 
 /***/ }),
 
@@ -511,6 +822,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/create */ "./
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js ***!
+  \*********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/define-properties */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/define-properties.js");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js":
 /*!*******************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js ***!
@@ -519,6 +841,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/create */ "./
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/define-property */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/define-property.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js":
+/*!**********************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/freeze */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/freeze.js");
 
 /***/ }),
 
@@ -870,6 +1203,36 @@ function _slicedToArray(arr, i) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/taggedTemplateLiteral.js ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _taggedTemplateLiteral; });
+/* harmony import */ var _core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-properties */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-properties.js");
+/* harmony import */ var _core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/object/freeze */ "./node_modules/@babel/runtime-corejs2/core-js/object/freeze.js");
+/* harmony import */ var _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1__);
+
+
+function _taggedTemplateLiteral(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+
+  return _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default()(_core_js_object_define_properties__WEBPACK_IMPORTED_MODULE_0___default()(strings, {
+    raw: {
+      value: _core_js_object_freeze__WEBPACK_IMPORTED_MODULE_1___default()(raw)
+    }
+  }));
+}
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js":
 /*!*******************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/typeof.js ***!
@@ -948,6 +1311,22 @@ module.exports = function create(P, D) {
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/define-properties.js":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/define-properties.js ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../../modules/es6.object.define-properties */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.define-properties.js");
+var $Object = __webpack_require__(/*! ../../modules/_core */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_core.js").Object;
+module.exports = function defineProperties(T, D) {
+  return $Object.defineProperties(T, D);
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/define-property.js":
 /*!*******************************************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/define-property.js ***!
@@ -960,6 +1339,19 @@ var $Object = __webpack_require__(/*! ../../modules/_core */ "./node_modules/@ba
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/freeze.js":
+/*!**********************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/fn/object/freeze.js ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../../modules/es6.object.freeze */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.freeze.js");
+module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_core.js").Object.freeze;
 
 
 /***/ }),
@@ -2440,6 +2832,20 @@ $export($export.S, 'Object', { create: __webpack_require__(/*! ./_object-create 
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.define-properties.js":
+/*!******************************************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.define-properties.js ***!
+  \******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var $export = __webpack_require__(/*! ./_export */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_export.js");
+// 19.1.2.3 / 15.2.3.7 Object.defineProperties(O, Properties)
+$export($export.S + $export.F * !__webpack_require__(/*! ./_descriptors */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_descriptors.js"), 'Object', { defineProperties: __webpack_require__(/*! ./_object-dps */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_object-dps.js") });
+
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.define-property.js":
 /*!****************************************************************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.define-property.js ***!
@@ -2450,6 +2856,26 @@ $export($export.S, 'Object', { create: __webpack_require__(/*! ./_object-create 
 var $export = __webpack_require__(/*! ./_export */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_export.js");
 // 19.1.2.4 / 15.2.3.6 Object.defineProperty(O, P, Attributes)
 $export($export.S + $export.F * !__webpack_require__(/*! ./_descriptors */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_descriptors.js"), 'Object', { defineProperty: __webpack_require__(/*! ./_object-dp */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_object-dp.js").f });
+
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.freeze.js":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/es6.object.freeze.js ***!
+  \*******************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// 19.1.2.5 Object.freeze(O)
+var isObject = __webpack_require__(/*! ./_is-object */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_is-object.js");
+var meta = __webpack_require__(/*! ./_meta */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_meta.js").onFreeze;
+
+__webpack_require__(/*! ./_object-sap */ "./node_modules/@babel/runtime-corejs2/node_modules/core-js/library/modules/_object-sap.js")('freeze', function ($freeze) {
+  return function freeze(it) {
+    return $freeze && isObject(it) ? $freeze(meta(it)) : it;
+  };
+});
 
 
 /***/ }),
@@ -2845,12 +3271,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _components_Lobby__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/Lobby */ "./components/Lobby.js");
+/* harmony import */ var _components_GameBoard__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../components/GameBoard */ "./components/GameBoard.js");
 
 
 
 
 
-var _jsxFileName = "C:\\Users\\Josh Mcclain\\projects\\CodeNamesReact\\frontend\\pages\\index.js";
+var _jsxFileName = "C:\\Users\\Jmccl\\Coding Projects\\CodeNamesReact\\frontend\\pages\\index.js";
+
 
 
 
@@ -2868,10 +3296,11 @@ function (_Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Home, [{
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_components_Lobby__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      // return <Lobby />;
+      return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_components_GameBoard__WEBPACK_IMPORTED_MODULE_7__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 7
+          lineNumber: 8
         },
         __self: this
       });
@@ -2892,7 +3321,7 @@ function (_Component) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Josh Mcclain\projects\CodeNamesReact\frontend\pages\index.js */"./pages/index.js");
+module.exports = __webpack_require__(/*! C:\Users\Jmccl\Coding Projects\CodeNamesReact\frontend\pages\index.js */"./pages/index.js");
 
 
 /***/ }),
@@ -2916,6 +3345,17 @@ module.exports = require("react");
 /***/ (function(module, exports) {
 
 module.exports = require("socket.io-client");
+
+/***/ }),
+
+/***/ "styled-components":
+/*!************************************!*\
+  !*** external "styled-components" ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("styled-components");
 
 /***/ })
 
